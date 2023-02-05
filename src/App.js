@@ -6,10 +6,12 @@ const App = () => {
 
   return (
     <div className="app-style">
-      {testArr.map(function (item) {
+      {/* {testArr.map(function (item) {
+        return <div className="component-style">{item}</div>;
+      })} */}
+      {testArr.map((item) => {
         return <div className="component-style">{item}</div>;
       })}
-      ;
     </div>
   );
 };

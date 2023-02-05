@@ -20,6 +20,7 @@ function App() {
     setAge(event.target.value);
   };
 
+  //추가 버튼 핸들러
   const buttonClickHandler = () => {
     const newUser = {
       id: users.length + 1,
@@ -28,6 +29,11 @@ function App() {
     };
 
     setUsers([...users, newUser]);
+  };
+
+  const deleteButtonClickHandler = (id) => {
+    const newUsers = users.filter((user) => user.id !== id);
+    setUsers(newUsers);
   };
 
   return (
@@ -43,6 +49,9 @@ function App() {
           return (
             <div key={item.id} className="component-style">
               {item.age} - {item.name}{" "}
+              <button onClick={() => deleteButtonClickHandler(item.id)}>
+                x
+              </button>
             </div>
           );
         })}

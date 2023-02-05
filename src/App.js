@@ -47,17 +47,25 @@ function App() {
       <div className="app-style">
         {users.map(function (item) {
           return (
-            <div key={item.id} className="component-style">
-              {item.age} - {item.name}{" "}
-              <button onClick={() => deleteButtonClickHandler(item.id)}>
-                x
-              </button>
-            </div>
+            <User
+              key={item.id}
+              item={item}
+              deleteButtonClickHandler={deleteButtonClickHandler}
+            />
           );
         })}
       </div>
     </div>
   );
 }
+
+const User = ({ item, deleteButtonClickHandler }) => {
+  return (
+    <div key={item.id} className="component-style">
+      {item.age} - {item.name}{" "}
+      <button onClick={() => deleteButtonClickHandler(item.id)}>x</button>
+    </div>
+  );
+};
 
 export default App;
